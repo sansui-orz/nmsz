@@ -24,6 +24,6 @@
 
 ![效果](./images/example.jpg)
 
-![设置](./images/setting.jpg){width="300"}
+![设置](./images/setting.jpg)
 
 
