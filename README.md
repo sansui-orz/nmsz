@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="180" src="https://github.com/sansui-orz/nmsz/blob/main/images/128x128.png" alt="nmsz logo">
+  <img width="128" src="https://github.com/sansui-orz/nmsz/blob/main/images/128x128.png" alt="nmsz logo">
 </p>
 <br/>
 
@@ -23,6 +23,7 @@
 ### 效果展示
 
 ![效果](./images/example.jpg)
-![设置](./images/setting.jpg)
+
+![设置](./images/setting.jpg){width="300"}
 
 
