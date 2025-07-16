@@ -20,6 +20,43 @@
 - mac (arm/x64) ✅
 - windows ❌ (暂未实现)
 
+## 运行
+
+```sh
+npm install
+npm start
+```
+如果需要调试设置页面，则需要修改main/main.js中的mainWindow.loadURL为web服务的url。在此之前，先启动web服务：
+
+```sh
+cd web
+npm install
+npm run dev
+```
+
+## 打包
+
+默认构建mac arm版本。
+
+```sh
+npm run build
+```
+
+构建mac int版本
+
+```sh
+npm run build:mac:x64
+```
+
+如果修改了web，则先构建web
+
+```sh
+cd web
+npm run build
+```
+
+项目很简单，大概看一眼工程就知道了。
+
 ### 效果展示
 
 ![效果](./images/example.jpg)

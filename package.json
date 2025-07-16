@@ -1,0 +1,87 @@
+{
+  "name": "nmsz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "cross-env ELE_ENV=dev electron . --enable-logging",
+    "web": "cd web && npm run dev",
+    "build:web": "cd web && npm run build",
+    "build": "npm run build:mac:arm64",
+    "build:mac:arm64": "npx electron-packager . nmsz --platform=darwin --arch=arm64 --overwrite --darwin-dark-mode-support --out=out --icon=main/icons/mac/icon.icns",
+    "build:mac:x64": "npx electron-packager . nmsz --platform=darwin --arch=x64 --out=out --icon=main/icons/mac/icon.icns"
+  },
+  "author": "sansui-orz",
+  "license": "ISC",
+  "build": {
+    "productName": "牛马时钟",
+    "appId": "com.nmsz.oclock",
+    "artifactName": "${name}-${version}-${os}.${ext}",
+    "directories": {
+      "output": "releases"
+    },
+    "files": [
+      "**/*",
+      "build/icon.*"
+    ],
+    "dmg": {
+      "title": "牛马时钟",
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "main/icons/mac/icon.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icons/win/icon.ico"
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "menuCategory": true,
+      "allowElevation": false
+    },
+    "linux": {
+      "icon": "build/icons",
+      "executableName": "nmsz",
+      "category": "tool",
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.5.0",
+    "cross-env": "^7.0.3",
+    "electron": "^32.1.2",
+    "electron-icon-builder": "^2.0.1",
+    "electron-packager": "^17.1.2"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.1.2",
+    "axios": "^1.7.9",
+    "big.js": "^6.2.2",
+    "canvas": "^3.1.0",
+    "electron-store": "^10.0.0"
+  }
+}
